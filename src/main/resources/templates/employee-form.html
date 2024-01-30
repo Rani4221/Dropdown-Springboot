@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Dropdown Example</title>
+</head>
+<body>
+<div align="center" ></div>
+<h1>Employee Form</h1>
+<br>
+<form th:action="@{/employee}" th:object="${employeeForm}" method="POST"/>
+<table>
+    <tr>
+        <td>Emp Designation</td>
+        <td>
+            <select name="employeeForm">
+                <option th:each="employeeForm : ${employeeFormList}"
+                        th:text="${employeeForm.getDesignation()}"
+                        th:value="${employeeForm}"></option>
+            </select>
+        </td>
+    </tr>
+</table>
+<input type="submit" value="Save"/>
+</form>
+</body>
+</html>
